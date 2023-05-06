@@ -1,6 +1,6 @@
 # A Portfolio Website - Flutter Web
 
-## [Watch it on YouTube](https://youtu.be/Y4oJMiEwlBg)
+## [Portfolio]
 
 ### This UI is not Responsive
 
@@ -10,4 +10,4 @@ A nice clean Portfolio Website for Designer or developers. Which includes almost
 
 ![App UI](/intro.gif)
 <br>
-<img src="/Portfolio.png" alt="portfolio" width="600">
+
