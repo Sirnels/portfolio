@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Okoh Nelson',
       theme: ThemeData(
         inputDecorationTheme: kDefaultInputDecorationTheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
