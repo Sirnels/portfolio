@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:web_app/components/navigation.dart';
 
 import '../../../constants.dart';
 
-class Menu extends StatefulWidget {
+class Menu extends ConsumerStatefulWidget {
   @override
   _MenuState createState() => _MenuState();
 }
 
-class _MenuState extends State<Menu> {
+class _MenuState extends ConsumerState<Menu> {
   int selectedIndex = 0;
   int hoverIndex = 0;
-  List<String> menuItems = [
-    "Home",
-    "Abour",
-    "Services",
-    "Portfolio",
-    "Testimonial",
-    "Contact"
-  ];
+  List<String> menuItems = ["Home", "Services", "Portfolio", "Contact"];
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2.5),
-      constraints: BoxConstraints(maxWidth: 1110),
+      constraints: BoxConstraints(maxWidth: 910),
       height: 100,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -46,11 +41,15 @@ class _MenuState extends State<Menu> {
         onTap: () {
           setState(() {
             selectedIndex = index;
+            ref.read(initNavigation.notifier).state = index;
           });
         },
         onHover: (value) {
           setState(() {
             value ? hoverIndex = index : hoverIndex = selectedIndex;
+            value
+                ? hoverIndex = index
+                : hoverIndex = ref.read(initNavigation.notifier).state;
           });
         },
         child: Container(
@@ -68,8 +67,11 @@ class _MenuState extends State<Menu> {
                 duration: Duration(milliseconds: 200),
                 left: 0,
                 right: 0,
-                bottom:
-                    selectedIndex != index && hoverIndex == index ? -20 : -32,
+                bottom: ref.read(initNavigation.notifier).state != index &&
+                        selectedIndex != index &&
+                        hoverIndex == index
+                    ? -20
+                    : -32,
                 child: Image.asset("assets/images/Hover.png"),
               ),
               // Select
@@ -77,7 +79,11 @@ class _MenuState extends State<Menu> {
                 duration: Duration(milliseconds: 200),
                 left: 0,
                 right: 0,
-                bottom: selectedIndex == index ? -2 : -32,
+                bottom: ref.read(initNavigation.notifier).state == index
+                    ? -2
+                    : selectedIndex == index
+                        ? -2
+                        : -32,
                 child: Image.asset("assets/images/Hover.png"),
               ),
             ],
