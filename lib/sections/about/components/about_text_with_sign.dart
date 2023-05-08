@@ -16,7 +16,7 @@ class AboutTextWithSign extends StatelessWidget {
           "About \nmy story",
           style: Theme.of(context)
               .textTheme
-              .headline2
+              .headlineMedium
               .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         SizedBox(height: kDefaultPadding * 2),

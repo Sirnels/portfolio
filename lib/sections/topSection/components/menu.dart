@@ -5,6 +5,11 @@ import 'package:web_app/components/navigation.dart';
 import '../../../constants.dart';
 
 class Menu extends ConsumerStatefulWidget {
+  final bool isMobile;
+  final bool isTablet;
+  final bool isDesktop;
+
+  Menu(this.isMobile, this.isTablet, this.isDesktop);
   @override
   _MenuState createState() => _MenuState();
 }
@@ -17,7 +22,17 @@ class _MenuState extends ConsumerState<Menu> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2.5),
-      constraints: BoxConstraints(maxWidth: 910),
+      // width: widget.isMobile == true
+      //     ? MediaQuery.of(context).size.width * 0.4
+      //     : widget.isTablet == true
+      //         ? MediaQuery.of(context).size.width * 0.8
+      //         : 910,
+      constraints: BoxConstraints(
+          maxWidth: widget.isMobile == true
+              ? MediaQuery.of(context).size.width 
+              : widget.isTablet == true
+                  ? MediaQuery.of(context).size.width * 0.9
+                  : MediaQuery.of(context).size.width * 0.9),
       height: 100,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -27,11 +42,14 @@ class _MenuState extends ConsumerState<Menu> {
         ),
         boxShadow: [kDefaultShadow],
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: List.generate(
-          menuItems.length,
-          (index) => buildMenuItem(index),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: List.generate(
+            menuItems.length,
+            (index) => buildMenuItem(index),
+          ),
         ),
       ),
     );

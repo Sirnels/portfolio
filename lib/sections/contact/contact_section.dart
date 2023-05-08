@@ -27,7 +27,8 @@ class ContactSection extends StatelessWidget {
             subTitle: "For Project inquiry and information",
             color: Color(0xFF07E24A),
           ),
-          ContactBox()
+          ContactBox(),
+          SizedBox(height: kDefaultPadding * 3),
         ],
       ),
     );
@@ -60,25 +61,26 @@ class ContactBox extends StatelessWidget {
               SocalCard(
                 color: Color(0xFFD9FFFC),
                 iconSrc: "assets/images/skype.png",
-                name: 'TheFlutterWay',
+                name: 'LinkedIn',
                 press: () {},
               ),
               SocalCard(
                 color: Color(0xFFE4FFC7),
                 iconSrc: "assets/images/whatsapp.png",
-                name: 'TheFlutterWay',
+                name: 'GitHub',
                 press: () {},
               ),
-              SocalCard(
-                color: Color(0xFFE8F0F9),
-                iconSrc: "assets/images/messanger.png",
-                name: 'TheFlutterWay',
-                press: () {},
-              ),
+              // SocalCard(
+              //   color: Color(0xFFE8F0F9),
+              //   iconSrc: "assets/images/messanger.png",
+              //   name: 'TheFlutterWay',
+              //   press: () {},
+              // ),
             ],
           ),
           SizedBox(height: kDefaultPadding * 2),
           ContactForm(),
+
         ],
       ),
     );

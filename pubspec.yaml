@@ -30,6 +30,7 @@ dependencies:
   flutter_riverpod:
 
 dev_dependencies:
+  flutter_svg: ^2.0.5
   flutter_test:
     sdk: flutter
 

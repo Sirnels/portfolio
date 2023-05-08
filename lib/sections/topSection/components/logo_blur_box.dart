@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'glass_content.dart';
 
 class LogoAndBlurBox extends StatelessWidget {
+  final bool isMobile;
+  final bool isTablet;
+  final bool isDesktop;
   const LogoAndBlurBox({
     Key key,
     @required this.size,
+    this.isMobile,
+    this.isTablet,
+    this.isDesktop,
   }) : super(key: key);
 
   final Size size;
@@ -17,7 +23,12 @@ class LogoAndBlurBox extends StatelessWidget {
       children: [
         Image.asset("assets/images/Logo.png"),
         Spacer(),
-        GlassContent(size: size),
+        GlassContent(
+          size: size,
+          isMobile: isMobile,
+          isTablet: isTablet,
+          isDesktop: isDesktop,
+        ),
         Spacer(flex: 3),
       ],
     );

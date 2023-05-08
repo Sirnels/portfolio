@@ -21,7 +21,11 @@ class ServiceSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
-                services.length, (index) => ServiceCard(index: index)),
+                services.length,
+                (index) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ServiceCard(index: index),
+                    )),
           )
         ],
       ),
