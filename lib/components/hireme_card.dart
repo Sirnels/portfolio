@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:web_app/components/widgets.dart';
 import '../constants.dart';
 import 'default_button.dart';
 
@@ -20,8 +21,8 @@ class HireMeCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Image.asset(
-            "assets/images/email.png",
+          SvgPicture.asset(
+            "assets/images/mail.svg",
             height: 80,
             width: 80,
           ),
@@ -48,11 +49,17 @@ class HireMeCard extends StatelessWidget {
               ],
             ),
           ),
-          DefaultButton(
-            text: "Hire Me!",
-            imageSrc: "assets/images/hand.png",
-            press: () {},
-          )
+          TextButton.icon(
+              onPressed: () {
+                sendingMails();
+              },
+              icon: Container(),
+              label: Text('Hire Me'))
+          // DefaultButton(
+          //   text: "Hire Me!",
+          //   imageSrc: "assets/images/hand.png",
+          //   press: () {},
+          // )
         ],
       ),
     );

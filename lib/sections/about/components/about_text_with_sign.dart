@@ -20,7 +20,11 @@ class AboutTextWithSign extends StatelessWidget {
               .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         SizedBox(height: kDefaultPadding * 2),
-        Image.asset("assets/images/sign.png")
+        // Image.asset(
+        //   "assets/images/okoh.png",
+        //   height: MediaQuery.of(context).size.width * 0.06,
+        //   width: MediaQuery.of(context).size.width * 0.2,
+        // )
       ],
     );
   }
