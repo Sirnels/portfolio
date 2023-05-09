@@ -9,26 +9,26 @@ class RecentWork {
 List<RecentWork> recentWorks = [
   RecentWork(
     id: 1,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "SQL Data Exploration in Microsoft SQL Server",
+    category: "SQL Data Cleaning ",
     image: "assets/images/work_1.png",
   ),
   RecentWork(
     id: 2,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "Business Inteligence and Forcasting",
+    category: "TabLue Projects",
     image: "assets/images/work_2.png",
   ),
   RecentWork(
     id: 3,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "Data Analysis and Visualization",
+    category: "Power BI Projects",
     image: "assets/images/work_3.png",
   ),
   RecentWork(
     id: 4,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "Analysing Data And Dashbord Creation",
+    category: "Excel Data Sheet Analysis",
     image: "assets/images/work_4.png",
   ),
 ];

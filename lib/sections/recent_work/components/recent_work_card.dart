@@ -48,7 +48,7 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(recentWorks[widget.index].category.toUpperCase()),
+                    Text(recentWorks[widget.index].category.toUpperCase(),style: TextStyle(fontWeight: FontWeight.bold),),
                     SizedBox(height: kDefaultPadding / 2),
                     Text(
                       recentWorks[widget.index].title,
@@ -58,8 +58,9 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                           .copyWith(height: 1.5),
                     ),
                     SizedBox(height: kDefaultPadding),
+                 
                     Text(
-                      "View Details",
+                      "View Projects",
                       style: TextStyle(decoration: TextDecoration.underline),
                     )
                   ],
