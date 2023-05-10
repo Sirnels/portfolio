@@ -46,7 +46,11 @@ class RecentWorkCardState extends ConsumerState<RecentWorkCard> {
         ),
         child: Row(
           children: [
-            Image.asset(recentWorks[widget.index].image),
+            Image.asset(
+              recentWorks[widget.index].image,
+              width: 250,
+              height: 300,
+            ),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),

@@ -11,24 +11,24 @@ List<RecentWork> recentWorks = [
     id: 1,
     title: "SQL Data Exploration in Microsoft SQL Server",
     category: "SQL Data Cleaning ",
-    image: "assets/images/work_1.png",
+    image: "assets/images/sql3.png",
   ),
   RecentWork(
     id: 2,
     title: "Business Inteligence and Forcasting",
     category: "TabLue Projects",
-    image: "assets/images/work_2.png",
+    image: "assets/images/tab3.png",
   ),
   RecentWork(
     id: 3,
     title: "Data Analysis and Visualization",
     category: "Power BI Projects",
-    image: "assets/images/work_3.png",
+    image: "assets/images/bi2.png",
   ),
   RecentWork(
     id: 4,
     title: "Analysing Data And Dashbord Creation",
     category: "Excel Data Sheet Analysis",
-    image: "assets/images/work_4.png",
+    image: "assets/images/data1.png",
   ),
 ];

@@ -25,14 +25,38 @@ class _RecentWorkSectionState extends ConsumerState<RecentWorkSection> {
         case 0:
           return SlideTransitionContainer(
             child: Container(
-              height: 320,
               width: 1110,
               decoration: BoxDecoration(
-                color: Colors.red,
+                // color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   if (ref.read(isHoverNavigation.notifier).state)
                     kDefaultCardShadow
+                ],
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/sql1.png',
+                      height: 512,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/sql2.png',
+                      height: 512,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/sql3.png',
+                      height: 512,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -40,14 +64,31 @@ class _RecentWorkSectionState extends ConsumerState<RecentWorkSection> {
         case 1:
           return SlideTransitionContainer(
             child: Container(
-              height: 320,
               width: 1110,
               decoration: BoxDecoration(
-                color: Colors.green,
+                //color: Colors.green,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   if (ref.read(isHoverNavigation.notifier).state)
                     kDefaultCardShadow
+                ],
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/tab1.png',
+                      height: 512,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/tab2.png',
+                      height: 512,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -55,14 +96,38 @@ class _RecentWorkSectionState extends ConsumerState<RecentWorkSection> {
         case 2:
           return SlideTransitionContainer(
             child: Container(
-              height: 320,
               width: 1110,
               decoration: BoxDecoration(
-                color: Colors.yellow,
+                // color: Colors.yellow,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   if (ref.read(isHoverNavigation.notifier).state)
                     kDefaultCardShadow
+                ],
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/bi1.png',
+                      height: 512,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/bi2.png',
+                      height: 512,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/bi3.png',
+                      height: 512,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -70,14 +135,31 @@ class _RecentWorkSectionState extends ConsumerState<RecentWorkSection> {
         case 3:
           return SlideTransitionContainer(
             child: Container(
-              height: 320,
               width: 1110,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                //  color: Colors.blue,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   if (ref.read(isHoverNavigation.notifier).state)
                     kDefaultCardShadow
+                ],
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/data1.png',
+                      height: 512,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/exc1.png',
+                      height: 512,
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -60,6 +60,7 @@ class _MenuState extends ConsumerState<Menu> {
           setState(() {
             selectedIndex = index;
             ref.read(initNavigation.notifier).state = index;
+            ref.read(projectNavigation.notifier).state = 4;
           });
         },
         onHover: (value) {
