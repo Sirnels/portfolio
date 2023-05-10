@@ -7,8 +7,9 @@ class ServiceCard extends StatefulWidget {
   const ServiceCard({
     Key key,
     this.index,
+    this.press,
   }) : super(key: key);
-
+  final Function press;
   final int index;
 
   @override
@@ -21,7 +22,7 @@ class _ServiceCardState extends State<ServiceCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: widget.press,
       onHover: (value) {
         setState(() {
           isHover = value;
