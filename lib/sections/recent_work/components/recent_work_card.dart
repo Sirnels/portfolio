@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:web_app/components/navigation.dart';
 import 'package:web_app/models/RecentWork.dart';
 
 import '../../../constants.dart';
 
-class RecentWorkCard extends StatefulWidget {
+class RecentWorkCard extends ConsumerStatefulWidget {
   // just press "Command + ."
   const RecentWorkCard({
     Key key,
@@ -15,11 +17,12 @@ class RecentWorkCard extends StatefulWidget {
   final Function press;
 
   @override
-  _RecentWorkCardState createState() => _RecentWorkCardState();
+  ConsumerState<ConsumerStatefulWidget> createState() => RecentWorkCardState();
 }
 
-class _RecentWorkCardState extends State<RecentWorkCard> {
+class RecentWorkCardState extends ConsumerState<RecentWorkCard> {
   bool isHover = false;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -27,6 +30,9 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
       onHover: (value) {
         setState(() {
           isHover = value;
+          ref.read(isHoverNavigation.notifier).state = value;
+          ref.read(projectNavigation.notifier).state = widget.index;
+          print(widget.index);
         });
       },
       child: AnimatedContainer(
@@ -48,7 +54,10 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(recentWorks[widget.index].category.toUpperCase(),style: TextStyle(fontWeight: FontWeight.bold),),
+                    Text(
+                      recentWorks[widget.index].category.toUpperCase(),
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     SizedBox(height: kDefaultPadding / 2),
                     Text(
                       recentWorks[widget.index].title,
@@ -58,9 +67,10 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                           .copyWith(height: 1.5),
                     ),
                     SizedBox(height: kDefaultPadding),
-                 
                     Text(
-                      "View Projects",
+                      ref.read(isClicked.notifier).state == true
+                          ? "Go Back"
+                          : "View Projects",
                       style: TextStyle(decoration: TextDecoration.underline),
                     )
                   ],

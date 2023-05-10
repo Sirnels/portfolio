@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/components/animation.dart';
 import 'package:web_app/constants.dart';
 
 import 'components/logo_blur_box.dart';
@@ -50,10 +51,15 @@ class TopSection extends StatelessWidget {
             Positioned(
               bottom: 0,
               right: 0,
-              child: PersonPic(
-                isMobile: isMobile,
-                isTablet: isTablet,
-                isDesktop: isDesktop,
+              child: SlideTransitionContainer(
+                offsetX: 1.0,
+                offsetY: 0.0,
+                duration: 1000,
+                child: PersonPic(
+                  isMobile: isMobile,
+                  isTablet: isTablet,
+                  isDesktop: isDesktop,
+                ),
               ),
             ),
             Positioned(

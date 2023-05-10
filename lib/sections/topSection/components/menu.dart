@@ -29,7 +29,7 @@ class _MenuState extends ConsumerState<Menu> {
       //         : 910,
       constraints: BoxConstraints(
           maxWidth: widget.isMobile == true
-              ? MediaQuery.of(context).size.width 
+              ? MediaQuery.of(context).size.width
               : widget.isTablet == true
                   ? MediaQuery.of(context).size.width * 0.9
                   : MediaQuery.of(context).size.width * 0.9),

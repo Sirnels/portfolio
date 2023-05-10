@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:web_app/components/animation.dart';
 
 import '../../../constants.dart';
 
@@ -35,16 +36,20 @@ class GlassContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Hello There!",
-                style: Theme.of(context).textTheme.headlineSmall.copyWith(
-                      color: Colors.white,
-                      fontSize: isMobile == true
-                          ? MediaQuery.of(context).size.width * 0.02
-                          : isTablet == true
-                              ? MediaQuery.of(context).size.width * 0.02
-                              : 25,
-                    ),
+              SlideTransitionContainer(
+                offsetX: -1.0,
+                offsetY: 0.0,
+                child: Text(
+                  "Hello There!",
+                  style: Theme.of(context).textTheme.headlineSmall.copyWith(
+                        color: Colors.white,
+                        fontSize: isMobile == true
+                            ? MediaQuery.of(context).size.width * 0.02
+                            : isTablet == true
+                                ? MediaQuery.of(context).size.width * 0.02
+                                : 25,
+                      ),
+                ),
               ),
               Text(
                 "Okoh \nNelson",
@@ -59,16 +64,20 @@ class GlassContent extends StatelessWidget {
                   height: 1.5,
                 ),
               ),
-              Text(
-                "Data Analyst | Software Developer",
-                style: Theme.of(context).textTheme.headlineSmall.copyWith(
-                      fontSize: isMobile == true
-                          ? MediaQuery.of(context).size.width * 0.03
-                          : isTablet == true
-                              ? MediaQuery.of(context).size.width * 0.025
-                              : 30,
-                      color: Colors.white,
-                    ),
+              SlideTransitionContainer(
+                offsetX: -1.0,
+                offsetY: 0.0,
+                child: Text(
+                  "Data Analyst | Software Developer",
+                  style: Theme.of(context).textTheme.headlineSmall.copyWith(
+                        fontSize: isMobile == true
+                            ? MediaQuery.of(context).size.width * 0.03
+                            : isTablet == true
+                                ? MediaQuery.of(context).size.width * 0.025
+                                : 30,
+                        color: Colors.white,
+                      ),
+                ),
               )
             ],
           ),

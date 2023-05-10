@@ -1,14 +1,107 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:web_app/components/animation.dart';
 import 'package:web_app/components/hireme_card.dart';
+import 'package:web_app/components/navigation.dart';
 import 'package:web_app/components/section_title.dart';
 import 'package:web_app/constants.dart';
 import 'package:web_app/models/RecentWork.dart';
 
 import 'components/recent_work_card.dart';
 
-class RecentWorkSection extends StatelessWidget {
+class RecentWorkSection extends ConsumerStatefulWidget {
   @override
-  Widget build(BuildContext context) {
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _RecentWorkSectionState();
+}
+
+class _RecentWorkSectionState extends ConsumerState<RecentWorkSection> {
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
+    Widget projectCard(int index) {
+      switch (index) {
+        case 0:
+          return SlideTransitionContainer(
+            child: Container(
+              height: 320,
+              width: 1110,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  if (ref.read(isHoverNavigation.notifier).state)
+                    kDefaultCardShadow
+                ],
+              ),
+            ),
+          );
+        case 1:
+          return SlideTransitionContainer(
+            child: Container(
+              height: 320,
+              width: 1110,
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  if (ref.read(isHoverNavigation.notifier).state)
+                    kDefaultCardShadow
+                ],
+              ),
+            ),
+          );
+        case 2:
+          return SlideTransitionContainer(
+            child: Container(
+              height: 320,
+              width: 1110,
+              decoration: BoxDecoration(
+                color: Colors.yellow,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  if (ref.read(isHoverNavigation.notifier).state)
+                    kDefaultCardShadow
+                ],
+              ),
+            ),
+          );
+        case 3:
+          return SlideTransitionContainer(
+            child: Container(
+              height: 320,
+              width: 1110,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  if (ref.read(isHoverNavigation.notifier).state)
+                    kDefaultCardShadow
+                ],
+              ),
+            ),
+          );
+          break;
+
+        default:
+          SlideTransitionContainer(
+            child: Container(
+              height: 320,
+              width: 1110,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  if (ref.read(isHoverNavigation.notifier).state)
+                    kDefaultCardShadow
+                ],
+              ),
+            ),
+          );
+      }
+    }
+
     return Container(
       margin: EdgeInsets.only(top: kDefaultPadding * 6),
       width: double.infinity,
@@ -33,17 +126,55 @@ class RecentWorkSection extends StatelessWidget {
             color: Color(0xFFFFB100),
           ),
           SizedBox(height: kDefaultPadding * 1.5),
-          SizedBox(
-            width: 1110,
-            child: Wrap(
-              spacing: kDefaultPadding,
-              runSpacing: kDefaultPadding * 2,
-              children: List.generate(
-                recentWorks.length,
-                (index) => RecentWorkCard(index: index, press: () {}),
-              ),
-            ),
-          ),
+          //   ref.read(isHoverNavigation.notifier).state == true
+
+          ref.read(projectNavigation.notifier).state == 4
+              ? SizedBox(
+                  width: 1110,
+                  child: Wrap(
+                    spacing: kDefaultPadding,
+                    runSpacing: kDefaultPadding * 2,
+                    children: List.generate(
+                      recentWorks.length,
+                      (index) => RecentWorkCard(
+                          index: index,
+                          press: () {
+                            setState(() {
+                              ref.read(projectNavigation.notifier).state =
+                                  index;
+                              ref.read(isClicked.notifier).state = true;
+                            });
+                          }),
+                    ),
+                  ),
+                )
+              : Column(
+                  children: [
+                    SizedBox(
+                      width: 1110,
+                      child: Wrap(
+                        spacing: kDefaultPadding,
+                        runSpacing: kDefaultPadding * 2,
+                        children: List.generate(
+                          1,
+                          (index) => RecentWorkCard(
+                              index: ref.read(projectNavigation.notifier).state,
+                              press: () {
+                                setState(() {
+                                  ref.read(projectNavigation.notifier).state =
+                                      4;
+                                  ref.read(isClicked.notifier).state = false;
+                                });
+                              }),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: projectCard(ref.watch(projectNavigation)),
+                    ),
+                  ],
+                ),
           SizedBox(height: kDefaultPadding * 5),
         ],
       ),
